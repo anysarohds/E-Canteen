@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "889397100053",
+    "project_id": "e-canteen-ff433",
+    "storage_bucket": "e-canteen-ff433.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:889397100053:android:c8380a4a36a3e86089181c",
+        "android_client_info": {
+          "package_name": "com.ani.e_canteen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "889397100053-g8kjienfinb27s1ld4476sh0o0ra12s1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCswxor8TT4vvACXoim2Sq7w7vtA-7FKTU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "889397100053-g8kjienfinb27s1ld4476sh0o0ra12s1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
