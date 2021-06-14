@@ -8,6 +8,7 @@ import android.text.TextUtils
 import com.alfanshter.udinlelangfix.Session.SessionManager
 import com.ani.e_canteen.HomeActivity
 import com.ani.e_canteen.R
+import com.ani.e_canteen.admin.AdminActivity
 import com.ani.e_canteen.utils.Constant
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
@@ -16,7 +17,7 @@ import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.*
 
-class LoginActivity : AppCompatActivity(),AnkoLogger {
+class LoginActivity : AppCompatActivity(), AnkoLogger {
     //database
     private lateinit var auth: FirebaseAuth
     lateinit var firestore: FirebaseFirestore
@@ -25,6 +26,11 @@ class LoginActivity : AppCompatActivity(),AnkoLogger {
 
     //token
     var token: String? = null
+//    keterangan tipe akun
+//    customer = 1
+//    warung =0
+
+    var tipe_akun = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +58,42 @@ class LoginActivity : AppCompatActivity(),AnkoLogger {
         var email = edt_email.text.toString().trim()
         var password = edt_password.text.toString().trim()
         if (email.isNotEmpty() && password.isNotEmpty()) {
-            auth.signInWithEmailAndPassword(email, password)
+
+            val docref = firestore.collection(Constant.akun_kantin).whereEqualTo("email", email)
+                .whereEqualTo("password", password)
+            docref.get().addOnSuccessListener { document ->
+                for (doc in document) {
+                    if (doc.exists()) {
+                        auth.signInWithEmailAndPassword(email, password)
+                            .addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    gettoken()
+                                } else {
+                                    progressdialog.dismiss()
+                                    toast("gagal login")
+
+                                }
+                            }
+                    }
+
+                }
+
+                if (document.isEmpty) {
+                    auth.signInWithEmailAndPassword(email, password)
+                        .addOnCompleteListener { task ->
+                            if (task.isSuccessful) {
+                                tipe_akun = 1
+                                gettoken()
+                            } else {
+                                progressdialog.dismiss()
+                                toast("gagal login")
+                            }
+                        }
+                }
+            }
+
+
+/*            auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         gettoken()
@@ -60,7 +101,7 @@ class LoginActivity : AppCompatActivity(),AnkoLogger {
                         progressdialog.dismiss()
                         toast("gagal login")
                     }
-                }
+                }*/
 
 
         } else {
@@ -76,17 +117,31 @@ class LoginActivity : AppCompatActivity(),AnkoLogger {
             // Get new FCM registration token
             token = task.result
             if (token != null) {
-                val req =
-                    firestore.collection(Constant.akun).document(auth.currentUser!!.uid)
-                        .update("token_id", token.toString()).addOnCompleteListener {
-                            if (it.isSuccessful) {
-                                sessionManager.setLogin(true)
-                                startActivity(intentFor<HomeActivity>().clearTask().newTask())
-                                progressdialog.dismiss()
-                                finish()
+                if (tipe_akun ==1 ){
+                    val req =
+                        firestore.collection(Constant.akun).document(auth.currentUser!!.uid)
+                            .update("token_id", token.toString()).addOnCompleteListener {
+                                if (it.isSuccessful) {
+                                    sessionManager.setLogin(true)
+                                    startActivity(intentFor<HomeActivity>().clearTask().newTask())
+                                    progressdialog.dismiss()
+                                    finish()
+                                }
                             }
-                        }
-            }else{
+                }else if (tipe_akun==0){
+                    val req =
+                        firestore.collection(Constant.akun_kantin).document(auth.currentUser!!.uid)
+                            .update("token_id", token.toString()).addOnCompleteListener {
+                                if (it.isSuccessful) {
+                                    sessionManager.setLoginadmin(true)
+                                    startActivity(intentFor<AdminActivity>().clearTask().newTask())
+                                    progressdialog.dismiss()
+                                    finish()
+                                }
+                            }
+                }
+
+            } else {
                 return@OnCompleteListener
             }
 
@@ -99,6 +154,11 @@ class LoginActivity : AppCompatActivity(),AnkoLogger {
         if (sessionManager.getLogin()!!) {
             startActivity(intentFor<HomeActivity>().clearTask().newTask())
             finish()
+        }
+        else if (sessionManager.getLoginadmin()!!){
+            startActivity(intentFor<AdminActivity>().clearTask().newTask())
+            finish()
+
         }
     }
 }
