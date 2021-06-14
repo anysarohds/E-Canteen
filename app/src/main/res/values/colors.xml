@@ -8,5 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="warna_dasar">#403558</color>
+    <color name="fbutton_color_transparent">@android:color/transparent</color>
     <color name="kuning">#FBD285</color>
+    <color name="kuning_mentah">#F9E8CF</color>
+    <color name="kuning_mateng">#E99F49</color>
 </resources>

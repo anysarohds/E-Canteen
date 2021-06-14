@@ -55,7 +55,6 @@
                     android:paddingLeft="10dp"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    android:text="@={viewmodel.nama_makanan}"
                     android:layout_marginTop="10dp"
                     android:inputType="textPersonName" />
 
@@ -78,7 +77,6 @@
                     android:background="@drawable/rectangle_4"
                     android:layout_marginTop="10dp"
                     android:paddingLeft="10dp"
-                    android:text="@={viewmodel.harga_makanan}"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:inputType="numberDecimal" />
@@ -102,7 +100,6 @@
                     android:background="@drawable/rectangle_4"
                     android:layout_marginTop="10dp"
                     android:paddingLeft="10dp"
-                    android:text="@={viewmodel.keterangan_makanan}"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -136,22 +133,22 @@
                         android:id="@+id/radio_food"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:onClick="@{viewmodel::onRadioButtonClicked}"
+                        android:onClick="onRadioButtonClicked"
                         android:text="Food"
                         android:fontFamily="@font/breeserif"/>
 
                     <RadioButton
                         android:id="@+id/radio_drink"
                         android:layout_width="wrap_content"
+                        android:onClick="onRadioButtonClicked"
                         android:layout_height="wrap_content"
-                        android:onClick="@{viewmodel::onRadioButtonClicked}"
                         android:text="Drink"
                         android:fontFamily="@font/breeserif"/>
                     <RadioButton
                         android:id="@+id/radio_snack"
                         android:layout_width="wrap_content"
+                        android:onClick="onRadioButtonClicked"
                         android:layout_height="wrap_content"
-                        android:onClick="@{viewmodel::onRadioButtonClicked}"
                         android:text="Snack"
                         android:fontFamily="@font/breeserif"/>
 
@@ -159,7 +156,7 @@
                         android:id="@+id/radio_dessert"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:onClick="@{viewmodel::onRadioButtonClicked}"
+                        android:onClick="onRadioButtonClicked"
                         android:text="Dessert"
                         android:fontFamily="@font/breeserif"/>
 
@@ -220,7 +217,6 @@
         android:layout_height="wrap_content"
         android:text="TAMBAHKAN"
         android:id="@+id/btnUpload"
-        android:onClick="@{viewmodel.btn_tambahkan}"
         android:fontFamily="@font/breeserif"
         android:textColor="@color/warna_dasar"
         android:layout_alignParentBottom="true" />
