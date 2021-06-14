@@ -9,6 +9,7 @@
     <FrameLayout android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/frame"
+        android:background="@color/warna_dasar"
         android:layout_toRightOf="@+id/navigation_rail"
         >
 
@@ -16,8 +17,13 @@
 
     <com.google.android.material.navigationrail.NavigationRailView
         android:id="@+id/navigation_rail"
-        android:layout_width="wrap_content"
+        android:background="@color/warna_dasar"
+        android:layout_width="60dp"
         android:layout_height="match_parent"
+        app:itemRippleColor="@color/warna_dasar"
+        app:backgroundTint="@color/warna_dasar"
+        app:labelVisibilityMode="unlabeled"
+        app:itemIconTint="@color/bottom_navigation_selector"
         app:menu="@menu/navigation_rail_menu" />
 
 </RelativeLayout>

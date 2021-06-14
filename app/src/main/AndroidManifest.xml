@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ani.e_canteen">
+    package="com.ani.e_canteen" >
 
     <application
         android:allowBackup="true"
@@ -8,11 +8,18 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ECanteen">
-        <activity android:name=".HomeActivity"></activity>
+        android:theme="@style/Theme.ECanteen" >
+        <activity android:name=".admin.AddFoodActivity" >
+        </activity>
+        <activity android:name=".admin.AdminActivity" />
+        <activity android:name=".ui.dashboard.menu.DessertActivity" />
+        <activity android:name=".ui.dashboard.menu.SnackActivity" />
+        <activity android:name=".ui.dashboard.menu.DrinkActivity" />
+        <activity android:name=".ui.dashboard.menu.FoodActivity" />
+        <activity android:name=".HomeActivity" />
         <activity android:name=".auth.RegsiterActivity" />
         <activity android:name=".auth.LoginActivity" />
-        <activity android:name=".splashscreen.SplashscreenActivity">
+        <activity android:name=".splashscreen.SplashscreenActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

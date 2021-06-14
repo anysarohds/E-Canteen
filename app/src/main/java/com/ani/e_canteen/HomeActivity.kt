@@ -4,10 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.ani.e_canteen.ui.ChatFragment
-import com.ani.e_canteen.ui.DashboardFragment
-import com.google.android.material.navigation.NavigationBarView
-import com.google.android.material.navigationrail.NavigationRailMenuView
-import com.google.android.material.navigationrail.NavigationRailView
+import com.ani.e_canteen.ui.dashboard.DashboardFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {

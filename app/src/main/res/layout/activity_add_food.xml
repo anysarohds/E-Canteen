@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".admin.AddFoodActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btnUpload">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="20dp"
+                android:id="@+id/baris1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nama Makanan"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#000"
+                    android:fontFamily="@font/breeserif"
+                    android:id="@+id/judul"
+                    android:textSize="24dp"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nama Makanan"
+                    android:layout_marginTop="30dp"
+                    android:id="@+id/nama_makanan"
+                    android:textSize="14dp"
+                    android:fontFamily="@font/breeserif"
+
+                    />
+
+                <EditText
+                    android:id="@+id/edt_nama"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/black"
+                    android:background="@drawable/rectangle_4"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:text="@={viewmodel.nama_makanan}"
+                    android:layout_marginTop="10dp"
+                    android:inputType="textPersonName" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Harga Makanan"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/txt_harga"
+                    android:textSize="14dp"
+                    android:fontFamily="@font/breeserif"
+
+                    />
+
+                <EditText
+                    android:id="@+id/edt_harga"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/black"
+                    android:background="@drawable/rectangle_4"
+                    android:layout_marginTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:text="@={viewmodel.harga_makanan}"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Keterangan"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/txt_keterangan"
+                    android:textSize="14dp"
+                    android:fontFamily="@font/breeserif"
+
+                    />
+
+                <EditText
+                    android:id="@+id/edt_keterangan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/black"
+                    android:background="@drawable/rectangle_4"
+                    android:layout_marginTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:text="@={viewmodel.keterangan_makanan}"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/baris2"
+                android:layout_below="@id/baris1"
+                android:layout_margin="30dp"
+                android:layout_marginTop="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kategori"
+                    android:textSize="14dp"
+                    android:fontFamily="@font/breeserif" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup_kategori"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+
+                    <RadioButton
+                        android:id="@+id/radio_food"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{viewmodel::onRadioButtonClicked}"
+                        android:text="Food"
+                        android:fontFamily="@font/breeserif"/>
+
+                    <RadioButton
+                        android:id="@+id/radio_drink"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{viewmodel::onRadioButtonClicked}"
+                        android:text="Drink"
+                        android:fontFamily="@font/breeserif"/>
+                    <RadioButton
+                        android:id="@+id/radio_snack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{viewmodel::onRadioButtonClicked}"
+                        android:text="Snack"
+                        android:fontFamily="@font/breeserif"/>
+
+                    <RadioButton
+                        android:id="@+id/radio_dessert"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{viewmodel::onRadioButtonClicked}"
+                        android:text="Dessert"
+                        android:fontFamily="@font/breeserif"/>
+
+                </RadioGroup>
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/baris1"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="30dp"
+
+                >
+
+                <ImageView
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:id="@+id/gambar_makanan"
+                    android:background="@drawable/kotakfoto" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/camera"
+                        android:layout_marginRight="10dp"
+                        android:id="@+id/btn_foto" />
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:id="@+id/btn_galery"
+                        android:layout_marginLeft="10dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/galery" />
+
+
+                </LinearLayout>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:backgroundTint="@color/kuning"
+        android:layout_height="wrap_content"
+        android:text="TAMBAHKAN"
+        android:id="@+id/btnUpload"
+        android:onClick="@{viewmodel.btn_tambahkan}"
+        android:fontFamily="@font/breeserif"
+        android:textColor="@color/warna_dasar"
+        android:layout_alignParentBottom="true" />
+
+  </RelativeLayout>

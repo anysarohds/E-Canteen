@@ -19,4 +19,11 @@
     <string name="wait">Wait</string>
     <string name="wrong_password">Wrong Password !!</string>
     <string name="enter_email">Enter your email</string>
+    <string name="catagories">Catagories</string>
+    <string name="popular">Popular Now</string>
+    <string name="favorite">Favorite</string>
+    <string name="food">Food</string>
+    <string name="drink">Drink</string>
+    <string name="snack">Snack</string>
+    <string name="dessert">Dessert</string>
 </resources>
