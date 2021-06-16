@@ -3,12 +3,14 @@ package com.ani.e_canteen.admin
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ani.e_canteen.R
 import com.ani.e_canteen.adapter.MakananViewHolder
 import com.ani.e_canteen.model.MakananModels
 import com.ani.e_canteen.utils.Constant
 import com.ani.e_canteen.utils.CustomProgressDialog
+import com.facebook.shimmer.ShimmerFrameLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_admin.*
@@ -32,9 +34,11 @@ class AdminActivity : AppCompatActivity() {
     lateinit var progressDialog: CustomProgressDialog
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin)
+        shimmerLayout.startShimmer()
 
         auth = FirebaseAuth.getInstance()
         userID = auth.currentUser!!.uid
@@ -65,6 +69,9 @@ class AdminActivity : AppCompatActivity() {
                         val notesList = mutableListOf<MakananModels>()
                         for (doc in task.result!!.documents) {
                             if (doc.exists()) {
+                                shimmerLayout.stopShimmer()
+                                shimmerLayout.visibility = View.GONE
+                                barismenu4.visibility = View.VISIBLE
                                 val note = doc.toObject(MakananModels::class.java)
 
                                 note!!.uid_kantin = doc.id
