@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.alfanshter.udinlelangfix.Session.SessionManager
 import com.ani.e_canteen.R
 import com.ani.e_canteen.adapter.MakananViewHolder
+import com.ani.e_canteen.auth.LoginActivity
 import com.ani.e_canteen.model.MakananModels
 import com.ani.e_canteen.utils.Constant
 import com.ani.e_canteen.utils.CustomProgressDialog
@@ -33,11 +35,13 @@ class AdminActivity : AppCompatActivity() {
     //loading
     lateinit var progressDialog: CustomProgressDialog
 
+    lateinit var sessionManager: SessionManager
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin)
+        sessionManager = SessionManager(this)
         shimmerLayout.startShimmer()
 
         auth = FirebaseAuth.getInstance()
@@ -48,6 +52,14 @@ class AdminActivity : AppCompatActivity() {
             startActivity<AddFoodActivity>()
         }
 
+        btn_logout.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            sessionManager.setLoginadmin(false)
+            sessionManager.setLogin(false)
+            startActivity<LoginActivity>()
+            finish()
+
+        }
         getmakanan()
     }
 

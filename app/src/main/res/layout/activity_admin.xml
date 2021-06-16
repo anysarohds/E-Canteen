@@ -54,6 +54,19 @@
 
         </RelativeLayout>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:backgroundTint="@color/kuning"
+            android:textColor="@color/warna_dasar"
+            android:id="@+id/btn_logout"
+            android:text="Logout"
+            android:layout_marginRight="10dp"
+            android:textSize="12dp"
+            android:layout_alignBottom="@+id/rv_menu1"
+            />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
