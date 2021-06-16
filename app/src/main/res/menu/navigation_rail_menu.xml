@@ -17,4 +17,23 @@
         android:icon="@drawable/favorite"
         android:title="@string/favorite"/>
 
+    <item
+        android:id="@+id/setting"
+        android:enabled="true"
+        android:icon="@drawable/setting"
+        android:title="@string/setting"/>
+
+    <item
+        android:id="@+id/cart"
+        android:enabled="true"
+        android:icon="@drawable/cart"
+        android:title="@string/cart"/>
+
+    <item
+        android:id="@+id/riwayat"
+        android:enabled="true"
+        android:icon="@drawable/riwayat"
+        android:title="@string/riwayat"/>
+
+
 </menu>

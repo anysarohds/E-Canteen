@@ -26,4 +26,10 @@
     <string name="drink">Drink</string>
     <string name="snack">Snack</string>
     <string name="dessert">Dessert</string>
+    <string name="setting">Settings</string>
+    <string name="cart">Cart</string>
+    <string name="riwayat">Riwayat</string>
+    <string name="myorder">My Order</string>
+    <string name="promo">Promo Discount</string>
+    <string name="totalprice">Total Price</string>
 </resources>

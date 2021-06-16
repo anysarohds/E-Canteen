@@ -1,6 +1,5 @@
 package com.ani.e_canteen.admin
 
-import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -12,15 +11,10 @@ import com.ani.e_canteen.auth.LoginActivity
 import com.ani.e_canteen.model.MakananModels
 import com.ani.e_canteen.utils.Constant
 import com.ani.e_canteen.utils.CustomProgressDialog
-import com.facebook.shimmer.ShimmerFrameLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_admin.*
-import org.jetbrains.anko.newTask
 import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.support.v4.intentFor
-import org.jetbrains.anko.support.v4.toast
-import java.lang.Exception
 
 class AdminActivity : AppCompatActivity() {
 

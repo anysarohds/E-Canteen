@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="25dp"
+    android:layout_marginTop="15dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    app:cardBackgroundColor="@color/warna_dasar">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="77dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:id="@+id/foto"
+            android:layout_marginLeft="15dp"
+            android:src="@color/warna_dasar"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/foto"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/nama"
+            android:text="Ayam Bakar"
+            android:fontFamily="@font/breeserif"
+            android:textColor="@color/kuning_mentah"
+            android:textSize="20dp"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/foto"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/nama_kantin"
+            android:layout_below="@+id/nama"
+            android:text="Warung Bu YAYUK"
+            android:fontFamily="@font/breeserif"
+            android:textColor="@color/kuning_mateng"
+            android:textSize="10dp"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignLeft="@+id/nama_kantin"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/nama_kantin"
+            android:layout_height="wrap_content"
+            >
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/untuk_foto"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/breeserif"
+                    android:textColor="@color/black"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    />
+
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/untuk_foto"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/breeserif"
+                    android:textColor="@color/black"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    />
+
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/untuk_foto"
+                android:layout_marginLeft="10dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/breeserif"
+                    android:textColor="@color/black"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    />
+
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rp. 5000"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="20dp"
+            android:textSize="15dp"
+            android:id="@+id/harga"
+            android:fontFamily="@font/breeserif"
+            android:textColor="@color/kuning_mentah"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true" />
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+</com.google.android.material.card.MaterialCardView>

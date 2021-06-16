@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.ani.e_canteen.ui.ChatFragment
+import com.ani.e_canteen.ui.cart.CartFragment
 import com.ani.e_canteen.ui.dashboard.DashboardFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
@@ -18,6 +19,14 @@ class HomeActivity : AppCompatActivity() {
                     supportFragmentManager.beginTransaction().replace(
                         R.id.frame,
                         DashboardFragment()
+                    ).commit()
+                    return@setOnItemSelectedListener true
+                }
+
+                R.id.cart ->{
+                    supportFragmentManager.beginTransaction().replace(
+                        R.id.frame,
+                        CartFragment()
                     ).commit()
                     return@setOnItemSelectedListener true
                 }

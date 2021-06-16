@@ -1,8 +1,6 @@
 package com.ani.e_canteen.model
 
-import com.google.firebase.Timestamp
-
- class MakananModels {
+class MakananModels {
      var foto: String? = null
      var harga: Int? = null
      var id_makanan: String? = null

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.alfanshter.udinlelangfix.Session.SessionManager
 import com.ani.e_canteen.R
 import com.ani.e_canteen.adapter.PopularViewHolder
+import com.ani.e_canteen.database.NoteDB
 import com.ani.e_canteen.databinding.FragmentDashboardBinding
 import com.ani.e_canteen.model.MakananModels
 import com.ani.e_canteen.ui.dashboard.menu.DessertActivity
@@ -22,11 +23,16 @@ import com.ani.e_canteen.utils.CustomProgressDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.info
 import org.jetbrains.anko.support.v4.intentFor
 import org.jetbrains.anko.support.v4.startActivity
 
 
-class DashboardFragment : Fragment() {
+class DashboardFragment : Fragment(),AnkoLogger {
 
     //adapter
     private var mAdapter: PopularViewHolder? = null
@@ -41,6 +47,9 @@ class DashboardFragment : Fragment() {
 
     lateinit var sessionManager: SessionManager
 
+    val db by lazy {
+        NoteDB(context!!.applicationContext)
+    }
 
     lateinit var binding: FragmentDashboardBinding
     override fun onCreateView(
@@ -119,6 +128,7 @@ class DashboardFragment : Fragment() {
                                             intentFor<DetailfoodActivity>(
                                                 "foto" to barang.foto,
                                                 "nama" to barang.nama,
+                                                "nama_kantin" to barang.nama_kantin,
                                                 "rating" to barang.rating,
                                                 "kalori" to barang.kalori,
                                                 "harga" to barang.harga,
@@ -140,6 +150,7 @@ class DashboardFragment : Fragment() {
 
 
     }
+
 
 
 }

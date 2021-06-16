@@ -32,7 +32,6 @@ import com.google.firebase.storage.StorageTask
 import com.google.firebase.storage.UploadTask
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_add_food.*
-import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 import java.io.ByteArrayOutputStream
 
