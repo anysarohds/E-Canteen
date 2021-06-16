@@ -7,6 +7,7 @@ import com.google.firebase.Timestamp
      var harga: Int? = null
      var id_makanan: String? = null
      var kategori: String? = null
+     var kalori: String? = null
      var keterangan: String? = null
      var nama: String? = null
      var rating: Float? = null
@@ -20,6 +21,7 @@ import com.google.firebase.Timestamp
          harga: Int?,
          id_makanan: String?,
          kategori: String?,
+         kalori: String?,
          keterangan: String?,
          nama: String?,
          rating: Float?,
@@ -31,6 +33,7 @@ import com.google.firebase.Timestamp
          this.harga = harga
          this.id_makanan = id_makanan
          this.kategori = kategori
+         this.kalori = kalori
          this.keterangan = keterangan
          this.nama = nama
          this.rating = rating

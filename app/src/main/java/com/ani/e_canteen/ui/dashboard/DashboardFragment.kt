@@ -16,11 +16,13 @@ import com.ani.e_canteen.ui.dashboard.menu.DessertActivity
 import com.ani.e_canteen.ui.dashboard.menu.DrinkActivity
 import com.ani.e_canteen.ui.dashboard.menu.FoodActivity
 import com.ani.e_canteen.ui.dashboard.menu.SnackActivity
+import com.ani.e_canteen.ui.dashboard.order.DetailfoodActivity
 import com.ani.e_canteen.utils.Constant
 import com.ani.e_canteen.utils.CustomProgressDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import org.jetbrains.anko.support.v4.intentFor
 import org.jetbrains.anko.support.v4.startActivity
 
 
@@ -39,14 +41,14 @@ class DashboardFragment : Fragment() {
 
     lateinit var sessionManager: SessionManager
 
-    
-    lateinit var binding : FragmentDashboardBinding
+
+    lateinit var binding: FragmentDashboardBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_dashboard,container,false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_dashboard, container, false)
         binding.lifecycleOwner = this
 
         sessionManager = SessionManager(context!!.applicationContext)
@@ -77,10 +79,10 @@ class DashboardFragment : Fragment() {
 
         getfoodpopular()
 
-        return  binding.root
+        return binding.root
     }
 
-    fun getfoodpopular(){
+    fun getfoodpopular() {
         binding.rvPopular.layoutManager = LinearLayoutManager(context!!.applicationContext)
         binding.rvPopular.setHasFixedSize(true)
         (binding.rvPopular.layoutManager as LinearLayoutManager).orientation =
@@ -90,7 +92,8 @@ class DashboardFragment : Fragment() {
         val firestore = FirebaseFirestore.getInstance()
         val setiings = firestore.firestoreSettings.isPersistenceEnabled
         val docref =
-            firestore.collection(Constant.food).orderBy("terjual", Query.Direction.DESCENDING).limit(10).get()
+            firestore.collection(Constant.food).orderBy("terjual", Query.Direction.DESCENDING)
+                .limit(10).get()
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         val notesList = mutableListOf<MakananModels>()
@@ -111,6 +114,17 @@ class DashboardFragment : Fragment() {
                                     )
                                 mAdapter!!.setDialog(object : PopularViewHolder.Dialog {
                                     override fun onClick(position: Int) {
+                                        val barang: MakananModels = notesList.get(position)
+                                        startActivity(
+                                            intentFor<DetailfoodActivity>(
+                                                "foto" to barang.foto,
+                                                "nama" to barang.nama,
+                                                "rating" to barang.rating,
+                                                "kalori" to barang.kalori,
+                                                "harga" to barang.harga,
+                                                "id_makanan" to barang.id_makanan
+                                            )
+                                        )
 
                                     }
 

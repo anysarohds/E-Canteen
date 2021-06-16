@@ -72,7 +72,8 @@ dependencies {
     //shimmer
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
     implementation 'com.android.volley:volley:1.1.1'
-
+    //superbottomsheet
+    implementation 'com.github.andrefrsousa:SuperBottomSheet:1.5.0'
 
 
     testImplementation 'junit:junit:4.+'
