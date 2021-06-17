@@ -32,4 +32,29 @@
     <string name="myorder">My Order</string>
     <string name="promo">Promo Discount</string>
     <string name="totalprice">Total Price</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="dana">Dana</string>
+    <string name="Gopay">Go-Pay</string>
+    <string name="virtual">Virtual Account</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="profil">Profile</string>
+    <string name="cards">Cards</string>
+    <string name="security">Security</string>
+    <string name="bank">Bank</string>
+    <string name="notif">Notifications</string>
 </resources>

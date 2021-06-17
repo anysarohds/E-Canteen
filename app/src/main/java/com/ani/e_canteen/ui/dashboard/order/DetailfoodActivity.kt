@@ -1,7 +1,10 @@
 package com.ani.e_canteen.ui.dashboard.order
 
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import com.ani.e_canteen.R
@@ -13,6 +16,11 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.toast
+import java.io.File
+import java.io.FileNotFoundException
+import java.io.FileOutputStream
+import java.io.OutputStream
 
 class DetailfoodActivity : AppCompatActivity(), AnkoLogger {
 
@@ -26,6 +34,7 @@ class DetailfoodActivity : AppCompatActivity(), AnkoLogger {
     var harga: Int? = null
     var id_makanan: String? = null
 
+    var outputStream : OutputStream? = null
     val db by lazy {
         NoteDB(this)
     }
@@ -78,5 +87,6 @@ class DetailfoodActivity : AppCompatActivity(), AnkoLogger {
             finish()
         }
     }
+
 
 }

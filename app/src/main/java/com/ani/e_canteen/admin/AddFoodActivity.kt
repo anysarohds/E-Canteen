@@ -93,6 +93,7 @@ class AddFoodActivity : AppCompatActivity() {
             val nama = edt_nama.text.toString().trim()
             val harga = edt_harga.text.toString().trim()
             val keterangan = edt_keterangan.text.toString().trim()
+            val kalori = edt_kalori.text.toString().trim()
 
             if (nama.isNotEmpty() && harga.isNotEmpty() && keterangan.isNotEmpty() && data != null
                 && kategori_insert != null
@@ -136,6 +137,7 @@ class AddFoodActivity : AppCompatActivity() {
                                     usermap["nama"] = nama
                                     usermap["rating"] = 0
                                     usermap["terjual"] = 0
+                                    usermap["kalori"] = kalori
                                     usermap["id_makanan"] = key
                                     usermap["uid_kantin"] = UserId.toString()
                                     usermap["nama_kantin"] = data_objek!!.nama_kantin.toString()

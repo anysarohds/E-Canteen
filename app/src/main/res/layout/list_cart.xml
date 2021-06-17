@@ -62,6 +62,7 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/btn_mines"
                 android:background="@drawable/untuk_foto"
                 >
 
@@ -91,6 +92,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1"
+                    android:id="@+id/counter"
                     android:textSize="15dp"
                     android:fontFamily="@font/breeserif"
                     android:textColor="@color/black"
@@ -105,6 +107,7 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/btn_plus"
                 android:background="@drawable/untuk_foto"
                 android:layout_marginLeft="10dp"
                 >
@@ -133,17 +136,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Rp. 5000"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="20dp"
             android:textSize="15dp"
             android:id="@+id/harga"
             android:fontFamily="@font/breeserif"
             android:textColor="@color/kuning_mentah"
+            android:layout_toLeftOf="@+id/icon_sampah"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_centerVertical="true" />
+
+
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/iconsampah"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="5dp"
+            android:id="@+id/icon_sampah"
             android:layout_alignParentRight="true" />
-
-
     </RelativeLayout>
 
 

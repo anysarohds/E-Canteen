@@ -55,6 +55,7 @@
             android:clickable="false"
             android:layout_marginTop="5dp"
             android:id="@+id/rating"
+            style="?android:attr/ratingBarStyleSmall"
             android:layout_toRightOf="@id/foto"
             android:layout_marginLeft="20dp"
             />
@@ -77,14 +78,13 @@
         <RatingBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"
+            android:layout_margin="5dp"
+            style="?android:attr/ratingBarStyleIndicator"
             android:layout_below="@+id/nama_kantin"
             android:clickable="false"
-            android:layout_marginTop="5dp"
             android:id="@+id/bintag"
             android:stepSize="1"
             android:layout_alignParentEnd="true"
-            android:layout_marginBottom="2dp"
             android:numStars="1"
             android:layout_alignParentRight="true" />
 
