@@ -57,4 +57,6 @@
     <string name="security">Security</string>
     <string name="bank">Bank</string>
     <string name="notif">Notifications</string>
+    <string name="rincianpesanan">Rincian Pesanan</string>
+    <string name="lihatwarung">Lihat Warung</string>
 </resources>

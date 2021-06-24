@@ -15,8 +15,7 @@ import com.squareup.picasso.Picasso
 
 class PopularViewHolder(
     private val notesList: MutableList<MakananModels>,
-    private val context: Context,
-    private val firestoreDB: FirebaseFirestore
+    private val context: Context
 
 ) : RecyclerView.Adapter<PopularViewHolder.ViewHolder>() {
 

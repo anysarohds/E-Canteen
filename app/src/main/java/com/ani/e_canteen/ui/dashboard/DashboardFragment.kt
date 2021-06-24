@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alfanshter.udinlelangfix.Session.SessionManager
+import com.ani.e_canteen.ProfilActivity
 import com.ani.e_canteen.R
+import com.ani.e_canteen.SearchActivity
 import com.ani.e_canteen.adapter.PopularViewHolder
 import com.ani.e_canteen.database.NoteDB
 import com.ani.e_canteen.databinding.FragmentDashboardBinding
@@ -68,6 +70,9 @@ class DashboardFragment : Fragment(),AnkoLogger {
         firestoreDB = FirebaseFirestore.getInstance()
 
 
+        binding.btnHome.setOnClickListener {
+            startActivity<ProfilActivity>()
+        }
         binding.imgFood.setOnClickListener {
             startActivity<FoodActivity>()
         }
@@ -84,6 +89,10 @@ class DashboardFragment : Fragment(),AnkoLogger {
             startActivity<DessertActivity>()
         }
 
+
+        binding.search.setOnClickListener {
+            startActivity<SearchActivity>()
+        }
 
 
         getfoodpopular()
@@ -108,39 +117,44 @@ class DashboardFragment : Fragment(),AnkoLogger {
                         val notesList = mutableListOf<MakananModels>()
                         for (doc in task.result!!.documents) {
                             if (doc.exists()) {
-                                binding.shimmerLayout.stopShimmer()
-                                binding.shimmerLayout.visibility = View.GONE
-                                binding.rvPopular.visibility = View.VISIBLE
-                                val note = doc.toObject(MakananModels::class.java)
+                                try {
+                                    binding.shimmerLayout.stopShimmer()
+                                    binding.shimmerLayout.visibility = View.GONE
+                                    binding.rvPopular.visibility = View.VISIBLE
+                                    val note = doc.toObject(MakananModels::class.java)
 
-                                note!!.uid_kantin = doc.id
-                                notesList.add(note)
-                                mAdapter =
-                                    PopularViewHolder(
-                                        notesList,
-                                        context!!.applicationContext,
-                                        firestoreDB!!
-                                    )
-                                mAdapter!!.setDialog(object : PopularViewHolder.Dialog {
-                                    override fun onClick(position: Int) {
-                                        val barang: MakananModels = notesList.get(position)
-                                        startActivity(
-                                            intentFor<DetailfoodActivity>(
-                                                "foto" to barang.foto,
-                                                "nama" to barang.nama,
-                                                "nama_kantin" to barang.nama_kantin,
-                                                "rating" to barang.rating,
-                                                "kalori" to barang.kalori,
-                                                "harga" to barang.harga,
-                                                "id_makanan" to barang.id_makanan
-                                            )
+                                    note!!.uid_kantin = doc.id
+                                    notesList.add(note)
+                                    mAdapter =
+                                        PopularViewHolder(
+                                            notesList,
+                                            context!!.applicationContext
                                         )
+                                    mAdapter!!.setDialog(object : PopularViewHolder.Dialog {
+                                        override fun onClick(position: Int) {
+                                            val barang: MakananModels = notesList.get(position)
+                                            startActivity(
+                                                intentFor<DetailfoodActivity>(
+                                                    "foto" to barang.foto,
+                                                    "nama" to barang.nama,
+                                                    "nama_kantin" to barang.nama_kantin,
+                                                    "rating" to barang.rating,
+                                                    "kalori" to barang.kalori,
+                                                    "harga" to barang.harga,
+                                                    "id_makanan" to barang.id_makanan,
+                                                    "uid_kantin" to barang.uid_kantin
+                                                )
+                                            )
 
-                                    }
+                                        }
 
-                                })
-                                mAdapter!!.notifyDataSetChanged()
-                                binding.rvPopular.adapter = mAdapter
+                                    })
+                                    mAdapter!!.notifyDataSetChanged()
+                                    binding.rvPopular.adapter = mAdapter
+
+                                }catch (e :Exception){
+                                    return@addOnCompleteListener
+                                }
 
                             }
                         }

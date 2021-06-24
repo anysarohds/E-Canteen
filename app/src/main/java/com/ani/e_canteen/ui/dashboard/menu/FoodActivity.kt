@@ -37,6 +37,10 @@ class FoodActivity : AppCompatActivity(), AnkoLogger {
         userId = auth.currentUser!!.uid
 
 
+        btn_back.setOnClickListener {
+            finish()
+        }
+
         shimmer_food.startShimmer()
 
         getfood()

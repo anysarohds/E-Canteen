@@ -12,6 +12,8 @@ import com.ani.e_canteen.utils.Constant
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_dessert.*
+import kotlinx.android.synthetic.main.activity_dessert.btn_back
+import kotlinx.android.synthetic.main.activity_food.*
 import org.jetbrains.anko.intentFor
 
 class DessertActivity : AppCompatActivity() {
@@ -28,6 +30,10 @@ class DessertActivity : AppCompatActivity() {
         firestore = FirebaseFirestore.getInstance()
         auth = FirebaseAuth.getInstance()
         userId = auth.currentUser!!.uid
+
+        btn_back.setOnClickListener {
+            finish()
+        }
 
 
         shimmer_dessert.startShimmer()

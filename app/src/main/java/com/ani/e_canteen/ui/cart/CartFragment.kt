@@ -41,12 +41,13 @@ class CartFragment : Fragment(), AnkoLogger {
         NoteDB(requireContext().applicationContext)
     }
 
-    //paymentsupertbottom
-    var paymentsuperbottom = MyOrderFragment()
 
-    companion object{
-        var total_belanja = 0
+    companion object {
+        //paymentsupertbottom
+        var paymentsuperbottom = MyOrderFragment()
+        var sum = 0
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -57,8 +58,9 @@ class CartFragment : Fragment(), AnkoLogger {
 
         binding.btnPayment.setOnClickListener {
             paymentsuperbottom = MyOrderFragment()
-            paymentsuperbottom.show(requireActivity().supportFragmentManager,"MyOrderFragment")
+            paymentsuperbottom.show(requireActivity().supportFragmentManager, "MyOrderFragment")
         }
+
         getfoodpopular()
         getprice()
         return binding.root
@@ -67,28 +69,19 @@ class CartFragment : Fragment(), AnkoLogger {
     fun getprice() {
 
         CoroutineScope(Dispatchers.IO).launch {
-            val data = db.noteDao().getsum()
-            info { "dinda $data" }
-/*
-            for (a in data) {
-                var sum = a.harga * a.jumlah
-                total_belanja += sum
+            try {
+                val data = db.noteDao().getsum()
+                info { "dinda $data" }
+                withContext(Dispatchers.Main) {
+                    sum = data - 2000
+                    binding.priceItem.text = "Rp. ${data.toString()}"
+                    binding.pricePromo.text = "Rp. 2000"
+                    binding.priceTotal.text = "Rp. ${sum.toString()}"
+                }
 
+            } catch (e: Exception) {
+                return@launch
             }
-
-
-            var total = total_belanja - 2000
-
-
-            withContext(Dispatchers.Main) {
-                binding.priceItem.text = total_belanja.toString()
-                binding.pricePromo.text = "2000"
-                binding.priceTotal.text = total.toString()
-            }
-*/
-
-
-
         }
 
     }
@@ -108,7 +101,6 @@ class CartFragment : Fragment(), AnkoLogger {
 
                 override fun updatemines(note: Note) {
                     if (note.jumlah < 1) {
-                        toast("gagal login")
                     } else {
                         CoroutineScope(Dispatchers.IO).launch {
                             db.noteDao().updateNote(
@@ -117,8 +109,11 @@ class CartFragment : Fragment(), AnkoLogger {
                                     note.id_makanan,
                                     note.nama,
                                     note.nama_kantin,
+                                    note.foto_makanan,
                                     note.harga,
-                                    note.jumlah - 1
+                                    note.jumlah - 1,
+                                    note.uid_kantin,
+                                    note.uid_user
                                 )
                             )
                             getprice()
@@ -135,8 +130,12 @@ class CartFragment : Fragment(), AnkoLogger {
                                 note.id_makanan,
                                 note.nama,
                                 note.nama_kantin,
+                                note.foto_makanan,
                                 note.harga,
-                                note.jumlah + 1
+                                note.jumlah + 1,
+                                note.uid_kantin,
+                                note.uid_user
+
                             )
                         )
                         getprice()

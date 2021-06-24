@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    android:layout_marginTop="15dp"
+    app:cardBackgroundColor="@color/kuning">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/foto"
+            android:layout_width="64dp"
+            android:layout_height="53dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            app:cardCornerRadius="10dp"
+
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:id="@+id/img_foto"
+                android:background="@drawable/profil"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/nama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/foto"
+            android:fontFamily="@font/breeserif"
+            android:text="Ayam Bakar"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/kata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/foto"
+            android:layout_below="@+id/nama"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/breeserif"
+            android:text="Online"
+            android:textColor="@color/warna_dasar"
+            android:textSize="12dp" />
+
+
+    </RelativeLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

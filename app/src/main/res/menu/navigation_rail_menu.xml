@@ -12,12 +12,6 @@
         android:title="@string/chat"/>
 
     <item
-        android:id="@+id/favorite"
-        android:enabled="true"
-        android:icon="@drawable/favorite"
-        android:title="@string/favorite"/>
-
-    <item
         android:id="@+id/setting"
         android:enabled="true"
         android:icon="@drawable/setting"

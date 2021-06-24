@@ -91,7 +91,7 @@ class OrderViewHolder(
         holder.nama_kantin.text = note.nama_kantin
         holder.counter.text = note.jumlah.toString()
         holder.harga.text = harga.toString()
-        Picasso.get().load("https://i.ytimg.com/vi/iHQ5L68G9pg/maxresdefault.jpg").centerCrop()
+        Picasso.get().load(note.foto_makanan).centerCrop()
             .fit().into(holder.foto)
         holder.itemView.setOnClickListener {
             if (dialog != null) {

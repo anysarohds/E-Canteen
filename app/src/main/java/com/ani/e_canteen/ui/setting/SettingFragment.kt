@@ -14,6 +14,7 @@ import com.ani.e_canteen.model.UsersModels
 import com.ani.e_canteen.utils.Constant
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -59,7 +60,7 @@ class SettingFragment : Fragment() {
             .addOnSuccessListener {
                 if (it.exists()) {
                     val data = it.toObject(UsersModels::class.java)
-                    var namapanggilan = data!!.nama!!.split("\\s".toRegex())[1]
+                    var namapanggilan = data!!.nama!!.split("\\s".toRegex())[0]
                     binding.txtNamacustomer.text = data.nama.toString()
                     binding.txtPanggilan.text = namapanggilan
 

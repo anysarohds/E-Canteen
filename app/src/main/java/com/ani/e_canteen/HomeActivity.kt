@@ -6,9 +6,10 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.alfanshter.udinlelangfix.Session.SessionManager
 import com.ani.e_canteen.auth.LoginActivity
-import com.ani.e_canteen.ui.ChatFragment
+
 import com.ani.e_canteen.ui.cart.CartFragment
 import com.ani.e_canteen.ui.dashboard.DashboardFragment
+import com.ani.e_canteen.ui.rincian.RincianFragment
 import com.ani.e_canteen.ui.setting.SettingFragment
 import com.google.android.material.navigationrail.NavigationRailView
 import com.google.firebase.auth.FirebaseAuth
@@ -45,12 +46,11 @@ class HomeActivity : AppCompatActivity() {
                     return@setOnItemSelectedListener true
                 }
 
-                R.id.favorite -> {
-                    sessionManager.setLoginadmin(false)
-                    sessionManager.setLogin(false)
-                    FirebaseAuth.getInstance().signOut()
-                    startActivity<LoginActivity>()
-                    finish()
+                R.id.chat -> {
+                    supportFragmentManager.beginTransaction().replace(
+                        R.id.frame,
+                        com.ani.e_canteen.ui.chat.ChatFragment()
+                    ).commit()
                     return@setOnItemSelectedListener true
                 }
 
@@ -62,10 +62,18 @@ class HomeActivity : AppCompatActivity() {
                     navigation_rail.visibility = View.GONE
                     return@setOnItemSelectedListener true
                 }
+
+                R.id.riwayat -> {
+                    supportFragmentManager.beginTransaction().replace(
+                        R.id.frame,
+                        RincianFragment()
+                    ).commit()
+                    return@setOnItemSelectedListener true
+                }
                 else -> {
                     supportFragmentManager.beginTransaction().replace(
                         R.id.frame,
-                        ChatFragment()
+                        DashboardFragment()
                     ).commit()
                     return@setOnItemSelectedListener true
                 }

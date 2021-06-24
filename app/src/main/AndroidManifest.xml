@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,6 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ECanteen">
+        <activity android:name=".ProfilActivity"></activity>
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".ChatActivity" />
+        <activity android:name=".RincianPesananActivity" />
         <activity android:name=".ui.dashboard.order.DetailfoodActivity" />
         <activity android:name=".admin.AddFoodActivity" />
         <activity android:name=".admin.AdminActivity" />

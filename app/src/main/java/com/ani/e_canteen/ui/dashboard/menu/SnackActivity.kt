@@ -11,7 +11,9 @@ import com.ani.e_canteen.ui.dashboard.order.DetailfoodActivity
 import com.ani.e_canteen.utils.Constant
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_food.*
 import kotlinx.android.synthetic.main.activity_snack.*
+import kotlinx.android.synthetic.main.activity_snack.btn_back
 import org.jetbrains.anko.info
 import org.jetbrains.anko.intentFor
 
@@ -34,6 +36,10 @@ class SnackActivity : AppCompatActivity() {
         firestore = FirebaseFirestore.getInstance()
         auth = FirebaseAuth.getInstance()
         userId = auth.currentUser!!.uid
+
+        btn_back.setOnClickListener {
+            finish()
+        }
 
 
         shimmer_snack.startShimmer()

@@ -24,13 +24,24 @@
 
             <com.mancj.materialsearchbar.MaterialSearchBar
                 android:id="@+id/search"
-                android:layout_width="256dp"
+                android:layout_width="match_parent"
                 android:layout_height="23dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="30dp"
+                android:layout_toLeftOf="@+id/btn_home"
+                android:layout_margin="20dp"
                 app:mt_placeholder="Search"
                 app:mt_roundedSearchBarEnabled="true"
                 app:mt_searchBarColor="@color/kuning" />
+
+            <ImageView
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/btn_home"
+                android:backgroundTint="@color/white"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn_profile"
+                android:layout_alignParentRight="true" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/banner"
@@ -38,7 +49,6 @@
                 android:layout_height="114dp"
                 android:layout_below="@+id/search"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
                 app:cardCornerRadius="20dp">
 

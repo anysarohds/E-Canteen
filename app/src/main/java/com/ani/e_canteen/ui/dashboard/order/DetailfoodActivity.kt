@@ -11,6 +11,7 @@ import com.ani.e_canteen.R
 import com.ani.e_canteen.database.NoteDB
 import com.ani.e_canteen.database.entitas.Note
 import com.ani.e_canteen.databinding.ActivityDetailfoodBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -33,6 +34,7 @@ class DetailfoodActivity : AppCompatActivity(), AnkoLogger {
     var kalori: String? = null
     var harga: Int? = null
     var id_makanan: String? = null
+    var uid_kantin: String? = null
 
     var outputStream : OutputStream? = null
     val db by lazy {
@@ -57,6 +59,7 @@ class DetailfoodActivity : AppCompatActivity(), AnkoLogger {
         kalori = bundle.getString("kalori")
         harga = bundle.getInt("harga")
         id_makanan = bundle.getString("id_makanan")
+        uid_kantin = bundle.getString("uid_kantin")
         binding.txtNama.text = nama
         if (foto != null) {
             binding.fotoShimmer.stopShimmer()
@@ -82,7 +85,7 @@ class DetailfoodActivity : AppCompatActivity(), AnkoLogger {
     fun setuplistener(){
         CoroutineScope(Dispatchers.IO).launch {
             db.noteDao().addNote(
-                Note(0,id_makanan.toString(),nama.toString(),nama_kantin.toString(),harga.toString().toInt(),0)
+                Note(0,id_makanan.toString(),nama.toString(),nama_kantin.toString(),foto.toString(),harga.toString().toInt(),0,uid_kantin.toString(),FirebaseAuth.getInstance().uid.toString())
             )
             finish()
         }
